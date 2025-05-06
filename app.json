@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "curriculo",
-    "slug": "curriculo",
+    "name": "curriculo_app",
+    "slug": "curriculo_app",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
