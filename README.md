@@ -9,6 +9,7 @@ Este é um projeto de aplicativo móvel desenvolvido em **React Native** utiliza
   - Home
   - Sobre (com tecnologias utilizadas)
   - Experiência Acadêmica
+  - Experiência Profissional
   - Projetos
   - Jogo (página reservada para mini game ou projeto interativo)
 
