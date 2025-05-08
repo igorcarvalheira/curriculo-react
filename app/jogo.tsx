@@ -52,20 +52,18 @@ export default function JogoSenha() {
   };
 
   return (
-    <ScrollView contentContainerStyle={{ flexGrow: 1, backgroundColor: '#111', padding: 20 }}>
-      {/* Botão de Voltar */}
+    <ScrollView contentContainerStyle={{ flexGrow: 1 }} className="bg-gradient-to-br from-black via-[#1a1a2e] to-[#2f2f3f] px-5 py-6">
       <Link href="/">
         <Ionicons name="arrow-back" size={32} color="#FFD369" />
       </Link>
 
-      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', marginTop: 20 }}>
+      <View className="flex-1 items-center justify-center mt-5">
         <Text style={{ fontSize: 28, color: '#FFD369', fontWeight: 'bold', marginBottom: 10 }}>Jogo da Senha</Text>
 
         <Text style={{ color: '#D9D7E5', textAlign: 'center', fontSize: 16, marginBottom: 20 }}>
           Descubra uma sequência de 4 dígitos únicos. A cada tentativa, você saberá quantos estão corretos e quantos estão quase!
         </Text>
 
-        {/* Botão Mostrar Senha */}
         <TouchableOpacity
           style={{
             backgroundColor: '#0056b3',
@@ -86,7 +84,6 @@ export default function JogoSenha() {
           </Text>
         )}
 
-        {/* Campo de tentativa */}
         <TextInput
           style={{
             backgroundColor: '#1a1a1a',
@@ -105,8 +102,7 @@ export default function JogoSenha() {
           value={tentativa}
           onChangeText={(text) => setTentativa(text.replace(/\D/g, ''))}
         />
-
-        {/* Botão Tentar */}
+        
         <TouchableOpacity
           style={{
             backgroundColor: '#007bff',
