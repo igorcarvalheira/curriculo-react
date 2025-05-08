@@ -3,7 +3,7 @@ import { Pressable, Text, View } from 'react-native';
 
 export default function Home() {
   return (
-    <View className="flex-1 items-center justify-center px-6 bg-[#161616]">
+    <View className="flex-1 items-center justify-center px-6 bg-gradient-to-br from-black via-[#1a1a2e] to-[#2f2f3f]  py-6">
       <Text className="text-4xl font-bold" style={{ color: '#FFD369' }}>
         Igor Carvalheira
       </Text>

@@ -6,7 +6,7 @@ export default function Sobre() {
   const router = useRouter();
 
   return (
-    <View className="flex-1 bg-[#161616] pt-16 px-6">
+    <View className="flex-1 items-center justify-center px-6 bg-gradient-to-br from-black via-[#1a1a2e] to-[#2f2f3f]  py-6">
       <Pressable onPress={() => router.back()} className="absolute left-4 top-12 z-10">
         <Ionicons name="arrow-back" size={24} color="#FFD369" />
       </Pressable>
@@ -30,7 +30,7 @@ export default function Sobre() {
           />
         </View>
 
-        <View className="bg-[#1e1e1e] rounded-2xl p-8">
+        <View className="bg-[#ffffff10] p-4 rounded-2xl shadow-md mb-4">
           <Text className="text-xl text-[#D9D7E5] leading-relaxed text-[16px]">
               Oi! Meu nome é Igor Carvalheira e atualmente sou um estudante da Universidade Católica de Pernambuco no curso de ciência da computação. Me interesso nas áreas de tecnologia da informação e desenvolvimento web.{" "}
             No momento, estou estudando{" "}

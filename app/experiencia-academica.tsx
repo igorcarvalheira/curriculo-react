@@ -11,7 +11,7 @@ type ItemProps = {
 
 function ItemAcademico({ titulo, subtitulo, periodo, icone }: ItemProps) {
   return (
-    <View className="bg-[#1e1e1e] rounded-2xl p-4 mb-4 flex-row items-center space-x-4">
+    <View className="bg-[#ffffff10] p-4 rounded-2xl shadow-md mb-4 flex-row items-center space-x-4">
       {icone}
       <View className="flex-1">
         <Text className="text-lg font-bold text-[#FFD369]">{titulo}</Text>
@@ -26,7 +26,7 @@ export default function ExperienciaAcademica() {
   const router = useRouter();
 
   return (
-    <View className="flex-1 bg-[#161616] pt-16 px-6">
+    <View className="flex-1 items-center justify-center px-6 bg-gradient-to-br from-black via-[#1a1a2e] to-[#2f2f3f]  py-6">
       <Pressable onPress={() => router.back()} className="absolute left-4 top-12 z-10">
         <Ionicons name="arrow-back" size={24} color="#FFD369" />
       </Pressable>

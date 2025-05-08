@@ -11,7 +11,7 @@ type ExperienciaItemProps = {
 
 function ExperienciaItem({ titulo, descricao, tecnologias, icone }: ExperienciaItemProps) {
   return (
-    <View className="bg-[#1e1e1e] rounded-2xl p-4 mb-4 flex-row items-center space-x-4">
+    <View className="bg-[#ffffff10] p-4 rounded-2xl shadow-md mb-4 flex-row items-center space-x-4">
       {icone}
       <View className="flex-1">
         <Text className="text-lg font-bold text-[#FFD369]">{titulo}</Text>
@@ -31,7 +31,7 @@ export default function ExperienciaProfissional() {
   const router = useRouter();
 
   return (
-    <View className="flex-1 bg-[#161616] pt-16 px-6">
+    <View className="flex-1 items-center justify-center px-6 bg-gradient-to-br from-black via-[#1a1a2e] to-[#2f2f3f]  py-6">
       <Pressable onPress={() => router.back()} className="absolute left-4 top-12 z-10">
         <Ionicons name="arrow-back" size={24} color="#FFD369" />
       </Pressable>
@@ -41,14 +41,12 @@ export default function ExperienciaProfissional() {
       </Text>
 
       <ScrollView showsVerticalScrollIndicator={false} className="pb-32">
-        {/* Mensagem introdutória */}
-        <View className="bg-[#1e1e1e] rounded-2xl p-4 mb-6">
+        <View className="bg-[#ffffff10] p-4 rounded-2xl shadow-md mb-4">
           <Text className="text-base text-[#D9D7E5] leading-relaxed">
             Embora ainda não tenha experiência profissional formal, venho desenvolvendo projetos práticos em <Text className="text-[#FFD369] font-bold">HTML, CSS, React, React Native, Tailwind CSS</Text>, entre outras tecnologias.
           </Text>
         </View>
 
-        {/* Itens de experiência */}
         <ExperienciaItem
           titulo="Projetos com HTML, CSS, React e React Native"
           descricao="Criação de sites, aplicativos, portfólios e jogos interativos."
