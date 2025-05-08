@@ -11,7 +11,7 @@ Este é um projeto de aplicativo móvel desenvolvido em **React Native** utiliza
   - Experiência Acadêmica
   - Experiência Profissional
   - Projetos
-  - Jogo (página reservada para mini game ou projeto interativo)
+  - Jogo da Senha
 
 ## 🛠 Tecnologias utilizadas
 
