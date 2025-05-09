@@ -1,5 +1,6 @@
 import { Ionicons } from '@expo/vector-icons';
 import { Audio } from 'expo-av';
+import { LinearGradient } from 'expo-linear-gradient';
 import { Link } from 'expo-router';
 import { useEffect, useRef, useState } from 'react';
 import { ScrollView, Text, TextInput, TouchableOpacity, View } from 'react-native';
@@ -82,89 +83,96 @@ export default function JogoSenha() {
   };
 
   return (
-    <ScrollView contentContainerStyle={{ flexGrow: 1 }} className="bg-gradient-to-br from-black via-[#1a1a2e] to-[#2f2f3f] px-5 py-6">
-      <Link href="/">
-        <Ionicons name="arrow-back" size={32} color="#FFD369" />
-      </Link>
+    <LinearGradient
+      colors={['#000000', '#1a1a2e', '#2f2f3f']}
+      start={{ x: 0, y: 0 }}
+      end={{ x: 1, y: 1 }}
+      style={{ flex: 1 }}
+    >
+      <ScrollView contentContainerStyle={{ flexGrow: 1 }} className="bg-gradient-to-br from-black via-[#1a1a2e] to-[#2f2f3f] px-5 py-6">
+        <Link href="/">
+          <Ionicons name="arrow-back" size={32} color="#FFD369" />
+        </Link>
 
-      <View className="flex-1 items-center justify-center mt-5">
-        <Text style={{ fontSize: 28, color: '#FFD369', fontWeight: 'bold', marginBottom: 10 }}>Jogo da Senha</Text>
+        <View className="flex-1 items-center justify-center mt-5">
+          <Text style={{ fontSize: 28, color: '#FFD369', fontWeight: 'bold', marginBottom: 10 }}>Jogo da Senha</Text>
 
-        <Text style={{ color: '#D9D7E5', textAlign: 'center', fontSize: 16, marginBottom: 20 }}>
-          Descubra uma sequência de 4 dígitos únicos. A cada tentativa, você saberá quantos estão corretos e quantos estão quase!
-        </Text>
-
-        <TouchableOpacity
-          style={{
-            backgroundColor: '#0056b3',
-            padding: 10,
-            borderRadius: 8,
-            marginBottom: 10,
-          }}
-          onPress={() => setMostrarSenha(!mostrarSenha)}
-        >
-          <Text style={{ color: 'white', fontSize: 16 }}>
-            {mostrarSenha ? 'Ocultar Senha' : 'Mostrar Senha'}
+          <Text style={{ color: '#D9D7E5', textAlign: 'center', fontSize: 16, marginBottom: 20 }}>
+            Descubra uma sequência de 4 dígitos únicos. A cada tentativa, você saberá quantos estão corretos e quantos estão quase!
           </Text>
-        </TouchableOpacity>
 
-        {mostrarSenha && (
-          <Text style={{ color: '#00ff88', marginBottom: 10 }}>
-            Senha atual: <Text style={{ fontWeight: 'bold' }}>{senha}</Text>
-          </Text>
-        )}
-
-        <TextInput
-          style={{
-            backgroundColor: '#1a1a1a',
-            color: '#D9D7E5',
-            padding: 10,
-            fontSize: 16,
-            borderRadius: 8,
-            textAlign: 'center',
-            width: '30%',
-            marginBottom: 10,
-          }}
-          maxLength={4}
-          keyboardType="numeric"
-          placeholder="Digite 4 dígitos"
-          placeholderTextColor="#666"
-          value={tentativa}
-          onChangeText={(text) => setTentativa(text.replace(/\D/g, ''))}
-        />
-
-        <TouchableOpacity
-          style={{
-            backgroundColor: '#007bff',
-            padding: 10,
-            borderRadius: 8,
-            marginBottom: 20,
-            width: '30%',
-            alignItems: 'center',
-          }}
-          onPress={verificarTentativa}
-        >
-          <Text style={{ color: 'white', fontSize: 16 }}>Tentar</Text>
-        </TouchableOpacity>
-
-        <Text style={{ fontSize: 20, color: '#FFD369', marginBottom: 10 }}>Tentativas:</Text>
-        {historico.map((linha, index) => (
-          <Text
-            key={index}
+          <TouchableOpacity
             style={{
-              backgroundColor: '#222',
-              color: '#D9D7E5',
-              padding: 8,
-              borderRadius: 6,
-              marginBottom: 5,
-              width: '90%',
-              textAlign: 'center',
+              backgroundColor: '#0056b3',
+              padding: 10,
+              borderRadius: 8,
+              marginBottom: 10,
             }}
+            onPress={() => setMostrarSenha(!mostrarSenha)}
           >
-            {linha}
-          </Text>
-        ))}
-      </View>
-    </ScrollView>
+            <Text style={{ color: 'white', fontSize: 16 }}>
+              {mostrarSenha ? 'Ocultar Senha' : 'Mostrar Senha'}
+            </Text>
+          </TouchableOpacity>
+
+          {mostrarSenha && (
+            <Text style={{ color: '#00ff88', marginBottom: 10 }}>
+              Senha atual: <Text style={{ fontWeight: 'bold' }}>{senha}</Text>
+            </Text>
+          )}
+
+          <TextInput
+            style={{
+              backgroundColor: '#1a1a1a',
+              color: '#D9D7E5',
+              padding: 10,
+              fontSize: 16,
+              borderRadius: 8,
+              textAlign: 'center',
+              width: '30%',
+              marginBottom: 10,
+            }}
+            maxLength={4}
+            keyboardType="numeric"
+            placeholder="Digite 4 dígitos"
+            placeholderTextColor="#666"
+            value={tentativa}
+            onChangeText={(text) => setTentativa(text.replace(/\D/g, ''))}
+          />
+
+          <TouchableOpacity
+            style={{
+              backgroundColor: '#007bff',
+              padding: 10,
+              borderRadius: 8,
+              marginBottom: 20,
+              width: '30%',
+              alignItems: 'center',
+            }}
+            onPress={verificarTentativa}
+          >
+            <Text style={{ color: 'white', fontSize: 16 }}>Tentar</Text>
+          </TouchableOpacity>
+
+          <Text style={{ fontSize: 20, color: '#FFD369', marginBottom: 10 }}>Tentativas:</Text>
+          {historico.map((linha, index) => (
+            <Text
+              key={index}
+              style={{
+                backgroundColor: '#222',
+                color: '#D9D7E5',
+                padding: 8,
+                borderRadius: 6,
+                marginBottom: 5,
+                width: '90%',
+                textAlign: 'center',
+              }}
+            >
+              {linha}
+            </Text>
+          ))}
+        </View>
+      </ScrollView>
+    </LinearGradient>
   );
 }

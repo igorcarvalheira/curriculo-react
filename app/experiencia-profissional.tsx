@@ -1,4 +1,5 @@
 import { FontAwesome5, Ionicons, MaterialIcons } from '@expo/vector-icons';
+import { LinearGradient } from 'expo-linear-gradient';
 import { useRouter } from 'expo-router';
 import { Pressable, ScrollView, Text, View } from 'react-native';
 
@@ -31,16 +32,29 @@ export default function ExperienciaProfissional() {
   const router = useRouter();
 
   return (
-    <View className="flex-1 items-center justify-center px-6 bg-gradient-to-br from-black via-[#1a1a2e] to-[#2f2f3f]  py-6">
-      <Pressable onPress={() => router.back()} className="absolute left-4 top-12 z-10">
-        <Ionicons name="arrow-back" size={24} color="#FFD369" />
-      </Pressable>
+    <LinearGradient
+      colors={['#000000', '#1a1a2e', '#2f2f3f']}
+      start={{ x: 0, y: 0 }}
+      end={{ x: 1, y: 1 }}
+      style={{ flex: 1 }} // Aplica o gradiente corretamente
+    >
+      <ScrollView
+        contentContainerStyle={{
+          paddingTop: 72,
+          paddingBottom: 64,
+          paddingHorizontal: 24,
+          flexGrow: 1, // Garante que o conteúdo preencha toda a altura
+        }}
+        showsVerticalScrollIndicator={false}
+      >
+        <Pressable onPress={() => router.back()} style={{ position: 'absolute', left: 16, top: 48, zIndex: 10 }}>
+          <Ionicons name="arrow-back" size={24} color="#FFD369" />
+        </Pressable>
 
-      <Text className="text-4xl font-bold text-center mb-8 text-[#FFD369]">
-        Experiência Profissional
-      </Text>
+        <Text className="text-4xl font-bold text-center mb-8 text-[#FFD369]">
+          Experiência Profissional
+        </Text>
 
-      <ScrollView showsVerticalScrollIndicator={false} className="pb-32">
         <View className="bg-[#ffffff10] p-4 rounded-2xl shadow-md mb-4">
           <Text className="text-base text-[#D9D7E5] leading-relaxed">
             Embora ainda não tenha experiência profissional formal, venho desenvolvendo projetos práticos em <Text className="text-[#FFD369] font-bold">HTML, CSS, React, React Native, Tailwind CSS</Text>, entre outras tecnologias.
@@ -74,6 +88,6 @@ export default function ExperienciaProfissional() {
           icone={<FontAwesome5 name="hotel" size={30} color="#FFD369" />}
         />
       </ScrollView>
-    </View>
+    </LinearGradient>
   );
 }

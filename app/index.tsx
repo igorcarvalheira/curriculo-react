@@ -1,6 +1,7 @@
 import { BebasNeue_400Regular, useFonts } from '@expo-google-fonts/bebas-neue';
+import { LinearGradient } from 'expo-linear-gradient'; // ✅ IMPORTANTE
 import { Link } from 'expo-router';
-import { Pressable, Text, View } from 'react-native';
+import { Pressable, Text } from 'react-native';
 
 export default function Home() {
   const [fontsLoaded] = useFonts({
@@ -12,12 +13,19 @@ export default function Home() {
   }
 
   return (
-    <View className="flex-1 items-center justify-center px-6 bg-gradient-to-br from-black via-[#1a1a2e] to-[#2f2f3f] py-6">
+    <LinearGradient
+      colors={['#000000', '#1a1a2e', '#2f2f3f']} // ✅ Gradiente aplicado corretamente
+      start={{ x: 0, y: 0 }}
+      end={{ x: 1, y: 1 }}
+      style={{ flex: 1, alignItems: 'center', justifyContent: 'center', paddingHorizontal: 24, paddingVertical: 24 }}
+    >
       <Text
-        className="text-7xl tracking-wide text-center"
         style={{
           fontFamily: 'BebasNeue_400Regular',
           color: '#FFD369',
+          fontSize: 64,
+          textAlign: 'center',
+          letterSpacing: 2,
           textShadowColor: '#000',
           textShadowOffset: { width: 1, height: 1 },
           textShadowRadius: 4,
@@ -26,7 +34,7 @@ export default function Home() {
         Igor Carvalheira
       </Text>
 
-      <Text className="text-xl mt-2 mb-6 text-center" style={{ color: '#D9D7E5' }}>
+      <Text style={{ color: '#D9D7E5', fontSize: 18, marginTop: 8, marginBottom: 24, textAlign: 'center' }}>
         Desenvolvedor Front-End
       </Text>
 
@@ -38,11 +46,29 @@ export default function Home() {
         { title: 'Jogo', href: '/jogo' },
       ].map(({ title, href }) => (
         <Link key={href} href={href as any} asChild>
-          <Pressable className="bg-[#ffffff10] px-4 py-3 rounded-2xl shadow-md mb-4 w-2/5">
+          <Pressable
+            style={{
+              backgroundColor: '#ffffff10',
+              paddingHorizontal: 16,
+              paddingVertical: 12,
+              borderRadius: 16,
+              marginBottom: 16,
+              width: '40%',
+              shadowColor: '#000',
+              shadowOffset: { width: 0, height: 2 },
+              shadowOpacity: 0.3,
+              shadowRadius: 4,
+              alignItems: 'center',
+            }}
+          >
             {({ pressed }) => (
               <Text
-                className="text-lg font-semibold text-center"
-                style={{ color: pressed ? '#0056b3' : '#D9D7E5' }}
+                style={{
+                  color: pressed ? '#0056b3' : '#D9D7E5',
+                  fontSize: 16,
+                  fontWeight: '600',
+                  textAlign: 'center',
+                }}
               >
                 {title}
               </Text>
@@ -50,6 +76,6 @@ export default function Home() {
           </Pressable>
         </Link>
       ))}
-    </View>
+    </LinearGradient>
   );
 }
