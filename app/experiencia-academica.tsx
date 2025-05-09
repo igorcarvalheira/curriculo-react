@@ -31,18 +31,18 @@ export default function ExperienciaAcademica() {
       colors={['#000000', '#1a1a2e', '#2f2f3f']}
       start={{ x: 0, y: 0 }}
       end={{ x: 1, y: 1 }}
-      style={{ flex: 1 }} // Corrigido aqui
+      style={{ flex: 1 }}
     >
       <ScrollView
         contentContainerStyle={{
           paddingTop: 72,
           paddingBottom: 64,
           paddingHorizontal: 24,
-          flexGrow: 1, // Corrigido aqui
+          flexGrow: 1,
         }}
         showsVerticalScrollIndicator={false}
       >
-        <Pressable onPress={() => router.back()} style={{ position: 'absolute', left: 16, top: 48, zIndex: 10 }}>
+        <Pressable onPress={() => router.back()}style={{ position: 'absolute', left: 16, top: 48, zIndex: 10 }}>
           <Ionicons name="arrow-back" size={24} color="#FFD369" />
         </Pressable>
 

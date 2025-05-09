@@ -60,10 +60,7 @@ export default function Projetos() {
         }}
         showsVerticalScrollIndicator={false}
       >
-        <Pressable
-          onPress={() => router.back()}
-          style={{ position: 'absolute', left: 16, top: 48, zIndex: 10 }}
-        >
+        <Pressable onPress={() => router.back()}style={{ position: 'absolute', left: 16, top: 48, zIndex: 10 }}>
           <Ionicons name="arrow-back" size={24} color="#FFD369" />
         </Pressable>
 

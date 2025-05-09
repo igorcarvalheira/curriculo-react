@@ -1,9 +1,9 @@
 import { Ionicons } from '@expo/vector-icons';
 import { Audio } from 'expo-av';
 import { LinearGradient } from 'expo-linear-gradient';
-import { Link } from 'expo-router';
+import { router } from 'expo-router';
 import { useEffect, useRef, useState } from 'react';
-import { ScrollView, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { Pressable, ScrollView, Text, TextInput, TouchableOpacity, View } from 'react-native';
 
 export default function JogoSenha() {
   const [senha, setSenha] = useState('');
@@ -20,8 +20,7 @@ export default function JogoSenha() {
     }
     return digitos.join('');
   };
-
-  // Música de fundo
+  
   useEffect(() => {
     const iniciarSom = async () => {
       try {
@@ -90,9 +89,9 @@ export default function JogoSenha() {
       style={{ flex: 1 }}
     >
       <ScrollView contentContainerStyle={{ flexGrow: 1 }} className="bg-gradient-to-br from-black via-[#1a1a2e] to-[#2f2f3f] px-5 py-6">
-        <Link href="/">
-          <Ionicons name="arrow-back" size={32} color="#FFD369" />
-        </Link>
+        <Pressable onPress={() => router.back()}style={{ position: 'absolute', left: 16, top: 48, zIndex: 10 }}>
+          <Ionicons name="arrow-back" size={24} color="#FFD369" />
+        </Pressable>
 
         <View className="flex-1 items-center justify-center mt-5">
           <Text style={{ fontSize: 28, color: '#FFD369', fontWeight: 'bold', marginBottom: 10 }}>Jogo da Senha</Text>

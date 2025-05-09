@@ -9,7 +9,7 @@ export default function Sobre() {
   return (
     <SafeAreaView className="flex-1 bg-black">
       <View className="flex-1 items-center justify-center px-6 bg-gradient-to-br from-black via-[#1a1a2e] to-[#2f2f3f] py-6">
-        <Pressable onPress={() => router.back()} className="absolute left-4 top-4 z-10">
+        <Pressable onPress={() => router.back()}style={{ position: 'absolute', left: 16, top: 48, zIndex: 10 }}>
           <Ionicons name="arrow-back" size={24} color="#FFD369" />
         </Pressable>
 
