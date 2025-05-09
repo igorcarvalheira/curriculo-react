@@ -1,6 +1,7 @@
 import { Ionicons } from '@expo/vector-icons';
+import { Audio } from 'expo-av';
 import { Link } from 'expo-router';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { ScrollView, Text, TextInput, TouchableOpacity, View } from 'react-native';
 
 export default function JogoSenha() {
@@ -8,6 +9,7 @@ export default function JogoSenha() {
   const [tentativa, setTentativa] = useState('');
   const [historico, setHistorico] = useState<string[]>([]);
   const [mostrarSenha, setMostrarSenha] = useState(false);
+  const soundRef = useRef<Audio.Sound | null>(null);
 
   const gerarSenha = (): string => {
     const digitos: number[] = [];
@@ -17,6 +19,34 @@ export default function JogoSenha() {
     }
     return digitos.join('');
   };
+
+  // Música de fundo
+  useEffect(() => {
+    const iniciarSom = async () => {
+      try {
+        const { sound } = await Audio.Sound.createAsync(
+          require('../assets/Robo Gang Johnny.mp3'),
+          {
+            shouldPlay: true,
+            isLooping: true,
+            volume: 0.2,
+          }
+        );
+        soundRef.current = sound;
+        await sound.playAsync();
+      } catch (err) {
+        console.error('Erro ao tocar música:', err);
+      }
+    };
+
+    iniciarSom();
+
+    return () => {
+      if (soundRef.current) {
+        soundRef.current.unloadAsync();
+      }
+    };
+  }, []);
 
   useEffect(() => {
     setSenha(gerarSenha());
@@ -102,7 +132,7 @@ export default function JogoSenha() {
           value={tentativa}
           onChangeText={(text) => setTentativa(text.replace(/\D/g, ''))}
         />
-        
+
         <TouchableOpacity
           style={{
             backgroundColor: '#007bff',
