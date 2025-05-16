@@ -1,5 +1,5 @@
 import { BebasNeue_400Regular, useFonts } from '@expo-google-fonts/bebas-neue';
-import { LinearGradient } from 'expo-linear-gradient'; // ✅ IMPORTANTE
+import { LinearGradient } from 'expo-linear-gradient';
 import { Link } from 'expo-router';
 import { Pressable, Text } from 'react-native';
 
@@ -14,7 +14,7 @@ export default function Home() {
 
   return (
     <LinearGradient
-      colors={['#000000', '#1a1a2e', '#2f2f3f']} // ✅ Gradiente aplicado corretamente
+      colors={['#000000', '#1a1a2e', '#2f2f3f']}
       start={{ x: 0, y: 0 }}
       end={{ x: 1, y: 1 }}
       style={{ flex: 1, alignItems: 'center', justifyContent: 'center', paddingHorizontal: 24, paddingVertical: 24 }}

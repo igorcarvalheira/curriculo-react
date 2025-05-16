@@ -1,4 +1,5 @@
 import { Ionicons } from '@expo/vector-icons';
+import { LinearGradient } from 'expo-linear-gradient';
 import { useRouter } from 'expo-router';
 import { Image, Pressable, ScrollView, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
@@ -7,24 +8,47 @@ export default function Sobre() {
   const router = useRouter();
 
   return (
-    <SafeAreaView className="flex-1 bg-black">
-      <View className="flex-1 items-center justify-center px-6 bg-gradient-to-br from-black via-[#1a1a2e] to-[#2f2f3f] py-6">
-        <Pressable onPress={() => router.back()}style={{ position: 'absolute', left: 16, top: 48, zIndex: 10 }}>
+    <LinearGradient
+      colors={['#000000', '#1a1a2e', '#2f2f3f']}
+      start={{ x: 0, y: 0 }}
+      end={{ x: 1, y: 1 }}
+      style={{ flex: 1 }}
+    >
+      <SafeAreaView style={{ flex: 1 }}>
+        <Pressable
+          onPress={() => router.back()}
+          style={{ position: 'absolute', left: 16, top: 48, zIndex: 10 }}
+        >
           <Ionicons name="arrow-back" size={24} color="#FFD369" />
         </Pressable>
 
-        <ScrollView showsVerticalScrollIndicator={false} className="space-y-8 pb-32 w-full">
-          <Text className="text-4xl font-bold text-center mb-4 text-[#FFD369]">
+        <ScrollView
+          showsVerticalScrollIndicator={false}
+          contentContainerStyle={{
+            paddingHorizontal: 24,
+            paddingTop: 100,
+            paddingBottom: 120,
+          }}
+        >
+          <Text
+            style={{
+              fontSize: 32,
+              fontWeight: 'bold',
+              textAlign: 'center',
+              color: '#FFD369',
+              marginBottom: 24,
+            }}
+          >
             Sobre
           </Text>
 
-          <View className="items-center p-8">
+          <View style={{ alignItems: 'center', padding: 24 }}>
             <Image
               source={require('../assets/foto.png')}
-              className="rounded-full"
               style={{
                 width: 250,
                 height: 250,
+                borderRadius: 125,
                 resizeMode: 'cover',
                 borderWidth: 2,
                 borderColor: '#FFD369',
@@ -32,8 +56,19 @@ export default function Sobre() {
             />
           </View>
 
-          <View className="bg-[#ffffff10] p-4 rounded-2xl shadow-md mb-4">
-            <Text className="text-xl text-[#D9D7E5] leading-relaxed text-[16px]">
+          <View
+            style={{
+              backgroundColor: '#ffffff10',
+              padding: 16,
+              borderRadius: 16,
+              shadowColor: '#000',
+              shadowOffset: { width: 0, height: 2 },
+              shadowOpacity: 0.3,
+              shadowRadius: 4,
+              marginBottom: 24,
+            }}
+          >
+            <Text style={{ fontSize: 16, color: '#D9D7E5', lineHeight: 24 }}>
               Oi! Meu nome é Igor Carvalheira e atualmente sou um estudante da Universidade Católica de Pernambuco no curso de ciência da computação. Me interesso nas áreas de tecnologia da informação e desenvolvimento web.{' '}
               No momento, estou estudando{' '}
               <Text style={{ color: '#FFD369', fontWeight: 'bold' }}>HTML</Text>,{' '}
@@ -44,7 +79,7 @@ export default function Sobre() {
             </Text>
           </View>
         </ScrollView>
-      </View>
-    </SafeAreaView>
+      </SafeAreaView>
+    </LinearGradient>
   );
 }
